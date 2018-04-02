@@ -89,6 +89,14 @@ def submit_jobs(connection, server, bundle_stream=None):
                     job_info = yaml.load(job_data)
                     yaml.dump(job_info, open(job, 'w'),indent=4)
             job_info = yaml.load(job_data)
+            print "========================"
+            print job_data
+            print "========================"
+            
+            
+            print "+++++++++++++++++++++++++++"
+            print job_info
+            print "++++++++++++++++++++++++++++"
             # Check if request device(s) are available
             if 'target' in job_info:
                 if job_info['target'] in offline_devices:
@@ -97,9 +105,6 @@ def submit_jobs(connection, server, bundle_stream=None):
                 elif job_info['target'] in online_devices:
                     pass
                     jobs = connection.scheduler.submit_job(job_data)
-                    print "======================"
-                    print job_data
-                    print "======================="
                     if isinstance(jobs, int):
                         jobs = str(jobs).split()
                     job_map[job] = jobs
