@@ -97,6 +97,9 @@ def submit_jobs(connection, server, bundle_stream=None):
                 elif job_info['target'] in online_devices:
                     pass
                     jobs = connection.scheduler.submit_job(job_data)
+                    print "======================"
+                    print job_data
+                    print "======================="
                     if isinstance(jobs, int):
                         jobs = str(jobs).split()
                     job_map[job] = jobs
