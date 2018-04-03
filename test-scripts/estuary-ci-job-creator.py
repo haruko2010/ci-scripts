@@ -56,6 +56,7 @@ def setup_job_dir(directory):
     print 'Setting up YAML output directory at: jobs/'
     if not os.path.exists(directory):
         os.makedirs(directory)
+    print "directory",directory
     print 'Done setting up YAML output directory'
 
 
@@ -299,6 +300,7 @@ def generate_job_file(cwd,
         else:
             job_json = cwd + '/jobs/' + job_name + '.yaml'
         template_file = cwd + '/templates/' + plan + '/' + str(template)
+        print "template_file",template_file
         if os.path.exists(template_file):
             with open(job_json, 'wt') as fout:
                 with open(template_file, "rt") as fin:
@@ -363,6 +365,7 @@ def generate_job_file(cwd,
                                 exit(1)
 
                         fout.write(tmp)
+                        print "tmp:",tmp
     return distro_url
 
 
