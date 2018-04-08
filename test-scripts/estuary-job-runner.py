@@ -78,6 +78,9 @@ def submit_jobs(connection, server, bundle_stream=None):
     online_devices, offline_devices = gather_devices(connection)
     online_device_types, offline_device_types = gather_device_types(connection)
     print "Submitting Jobs to Server..."
+    print '00000000000000000'
+    print job_map
+    print '00000000000000000'
     for job in job_map:
         try:
             with open(job, 'rt') as stream:
